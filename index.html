@@ -9,7 +9,19 @@
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
       
       <a-marker preset="hiro">
-        <a-box material="color: red;"></a-box>
+        
+        <a-entity
+            position="0 0.15 0"   
+            scale="1 1 1">
+          
+            <a-gltf-model
+                src="maisas.glb"
+                scale="0.001 0.001 0.001"
+                position="0 0 0">
+            </a-gltf-model>
+
+        </a-entity>
+
       </a-marker>
 
       <a-entity camera></a-entity>
