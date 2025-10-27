@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- A-Frame biblioteka -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- AR.js biblioteka skirta A-Frame -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
+    <!-- Įjungiame AR sceną -->
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
       
+      <!-- Nustatome, kad ieškosime 'hiro' žymeklio -->
       <a-marker preset="hiro">
         
+        <!-- Konteineris modeliui valdyti -->
+        <!-- Pakeista pozicija ir pasukimas -->
         <a-entity
-            position="0 0 0"   
+            position="0 0 1"    <!-- Pastumia modelį 1 metrą "nuo" sienos (išilgai Z ašies) -->
+            rotation="-90 0 0"  <!-- Pasuka modelį, kad jis būtų atsuktas į vartotoją -->
             scale="1 1 1">
           
-            <a-gltf-model
-                src="stendas.glb"
-                scale="1 1 1"
-                position="0 0 0">
-            </a-gltf-model>
+          <!-- 3D modelis, kuris bus rodomas -->
+          <!-- PASTABA: 'stendas.glb' turi būti pasiekiamas viešu URL adresu -->
+          <a-gltf-model
+              src="nr7.glb"
+              scale="1 1 1"
+              position="0 0 0"> <!-- Pozicija nustatoma per "tėvinį" <a-entity> -->
+          </a-gltf-model>
 
         </a-entity>
 
       </a-marker>
 
+      <!-- Kamera, kurią valdo AR.js -->
       <a-entity camera></a-entity>
 
     </a-scene>
   </body>
 </html>
+
